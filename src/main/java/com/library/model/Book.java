@@ -19,7 +19,7 @@ public class Book {
     private int listNumber;
     private int yearOfPublish;
     @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-    @JoinColumn(name="author_id",nullable=true )
+    @JoinColumn(name="author_id")
     private Author author;
     @ManyToMany(cascade = {CascadeType.PERSIST})
     @JoinTable(name="book_genre",
