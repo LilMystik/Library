@@ -1,7 +1,6 @@
 package com.library.service.author;
 
 import com.library.model.Author;
-
 import java.util.List;
 
 public interface AuthorService {

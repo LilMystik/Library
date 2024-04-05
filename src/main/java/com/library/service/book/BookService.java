@@ -1,7 +1,6 @@
 package com.library.service.book;
 
 import com.library.model.Book;
-
 import java.util.List;
 
 public interface BookService {

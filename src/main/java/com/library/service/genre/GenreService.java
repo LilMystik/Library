@@ -1,7 +1,6 @@
 package com.library.service.genre;
 
 import com.library.model.Genre;
-
 import java.util.List;
 
 public interface GenreService {
