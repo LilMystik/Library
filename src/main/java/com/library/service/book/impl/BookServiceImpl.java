@@ -29,12 +29,12 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public Book findByName(String titleName) {
-        return bookRepository.findBookByName(titleName);
+        return bookRepository.findBookByTitle(titleName);
     }
 
     @Override
     public void deleteBook(Long id) {
-bookRepository.deleteById(id);
+bookRepository.deleteBookById(id);
     }
 
     @Override

@@ -1,11 +1,9 @@
 package com.library.controller;
 
 import com.library.model.Author;
-import com.library.repository.AuthorRepository;
 import com.library.service.author.AuthorService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
