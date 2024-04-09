@@ -7,12 +7,12 @@ import java.util.Map;
 
 @Component
 public class BookCache {
-    private static final int sizeM=10;
+
     private final Map<String, Book> cache = new LinkedHashMap<>();
     public void put(String title,Book book)
     {
         cache.put(title,book);
-        if(cache.size()>sizeM) {
+        if(cache.size()> 10) {
             String oldestKey = cache.keySet().iterator().next();
             cache.remove(oldestKey);
         }

@@ -8,6 +8,7 @@ public interface BookService {
     Book saveBook(Book book);
     Book findById(Long id);
     Book findByName(String titleName);
-    void deleteBook(Long id);
     Book updateBook(Book book);
+    void deleteBookByTitle(String title);
+    Book findBookByTitleAndListNumber(String title,int listNumber);
 }
