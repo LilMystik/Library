@@ -37,9 +37,15 @@ private BookService bookService;
 {
     return  bookService.updateBook(book);
 }
-@DeleteMapping("delete/{id}")
-    public void  deleteBook(@PathVariable Long id)
+@DeleteMapping("delete/{title}")
+    public void  deleteBook(@PathVariable String title)
 {
-    bookService.deleteBook(id);
+    bookService.deleteBookByTitle(title);
+}
+
+@GetMapping("findBookByTitleAndList")
+    public Book findBookByTitleAndListNumber(@RequestParam String title,@RequestParam int listNumber)
+{
+    return bookService.findBookByTitleAndListNumber(title,listNumber);
 }
 }
