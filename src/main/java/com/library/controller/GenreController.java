@@ -2,6 +2,7 @@ package com.library.controller;
 
 import com.library.model.Genre;
 import com.library.service.genre.GenreService;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,6 +37,7 @@ private GenreService genreService;
 {
     return genreService.updateGenre(genre);
 }
+@Transactional
 @DeleteMapping(value="delete/{genreId}")
     public void deleteGenre(@PathVariable Long genreId)
 {

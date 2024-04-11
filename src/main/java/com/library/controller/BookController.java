@@ -43,9 +43,9 @@ private BookService bookService;
     bookService.deleteBookByTitle(title);
 }
 
-@GetMapping("findBookByTitleAndList")
-    public Book findBookByTitleAndListNumber(@RequestParam String title,@RequestParam int listNumber)
+@GetMapping("findBookByYearAndList")
+    public List<Book> findBookByTitleAndListNumber(@RequestParam int year,@RequestParam int listNumber)
 {
-    return bookService.findBookByTitleAndListNumber(title,listNumber);
+    return bookService.findBookByYearAndListNumber(year,listNumber);
 }
 }

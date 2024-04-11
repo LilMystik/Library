@@ -10,5 +10,5 @@ public interface BookService {
     Book findByName(String titleName);
     Book updateBook(Book book);
     void deleteBookByTitle(String title);
-    Book findBookByTitleAndListNumber(String title,int listNumber);
+    List<Book> findBookByYearAndListNumber(int year,int listNumber);
 }

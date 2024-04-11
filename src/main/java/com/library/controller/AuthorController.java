@@ -22,6 +22,8 @@ public class    AuthorController {
         return authorService.getAuthorById(authorId);
     }
 
+    @GetMapping(value = "findByName/{authorName}",produces = "application/json")
+    public Author getAuthorByName(@PathVariable String authorName){return authorService.getAuthorByName(authorName);}
     @PostMapping("save")
         public Author addAuthor(@RequestBody Author author)
         {

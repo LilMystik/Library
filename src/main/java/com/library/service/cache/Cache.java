@@ -1,23 +1,22 @@
 package com.library.service.cache;
 
-import com.library.model.Book;
 import org.springframework.stereotype.Component;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 @Component
-public class BookCache {
+public class Cache {
 
-    private final Map<String, Book> cache = new LinkedHashMap<>();
-    public void put(String title,Book book)
+    private final Map<String, Object> cache = new LinkedHashMap<>();
+    public void put(String title,Object object)
     {
-        cache.put(title,book);
+        cache.put(title,object);
         if(cache.size()> 10) {
             String oldestKey = cache.keySet().iterator().next();
             cache.remove(oldestKey);
         }
     }
-    public Book get(String title)
+    public Object get(String title)
     {
         return cache.get(title);
     }
