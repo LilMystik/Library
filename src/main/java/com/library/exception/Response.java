@@ -10,6 +10,6 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Response {
-    String message;
-    String description;
+  String message;
+  String description;
 }
