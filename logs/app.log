@@ -1,1 +1,11 @@
 15:10:12.441PM INFO  com.library.aspect.LoggingAspect - Aspect is initialized
+15:20:24.568PM INFO  com.library.aspect.LoggingAspect - Method: getAllGenres(), args: []
+15:20:24.793PM INFO  com.library.aspect.LoggingAspect - Method:getAllGenres()
+15:22:07.751PM INFO  com.library.aspect.LoggingAspect - Method: saveBook(), args: [com.library.model.Book@3afbca0d]
+15:22:07.827PM INFO  com.library.aspect.LoggingAspect - Exception in method: saveBook(), message: could not execute statement [ERROR: duplicate key value violates unique constraint "books_title_key"
+  Подробности: Key (title)=(Wilds) already exists.] [insert into books (author_id,list_number,title,year_of_publish) values (?,?,?,?)]; SQL [insert into books (author_id,list_number,title,year_of_publish) values (?,?,?,?)]; constraint [books_title_key]
+15:23:19.601PM INFO  com.library.aspect.LoggingAspect - Method: findGenreById(), args: [11]
+15:23:19.663PM INFO  com.library.aspect.LoggingAspect - Method:findGenreById()
+15:23:28.570PM INFO  com.library.aspect.LoggingAspect - Method: getAuthorById(), args: [11]
+15:23:28.576PM INFO  com.library.aspect.LoggingAspect - Exception in method: getAuthorById(), message: Author not found
+15:23:48.911PM INFO  com.library.aspect.LoggingAspect - Aspect is destroyed

@@ -7,22 +7,22 @@ import org.springframework.stereotype.Component;
 @Component
 public class Cache {
 
-  private final Map<String, Object> cache = new LinkedHashMap<>();
+  private final Map<String, Object> cacheNew = new LinkedHashMap<>();
 
   public void put(String title, Object object) {
-    cache.put(title, object);
-    if (cache.size() > 10) {
-      String oldestKey = cache.keySet().iterator().next();
-      cache.remove(oldestKey);
+    cacheNew.put(title, object);
+    if (cacheNew.size() > 10) {
+      String oldestKey = cacheNew.keySet().iterator().next();
+      cacheNew.remove(oldestKey);
     }
   }
 
   public Object get(String title) {
-    return cache.get(title);
+    return cacheNew.get(title);
   }
 
   public void remove(String title) {
-    cache.remove((title));
+    cacheNew.remove((title));
   }
 
 }
