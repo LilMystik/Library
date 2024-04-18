@@ -1,2 +1,2 @@
-16:05:07.421PM INFO  com.library.aspect.LoggingAspect - Aspect is initialized
-16:05:11.102PM INFO  com.library.aspect.LoggingAspect - Aspect is destroyed
+18:32:07.282PM INFO  com.library.aspect.LoggingAspect - Aspect is initialized
+18:32:24.091PM INFO  com.library.aspect.LoggingAspect - Aspect is destroyed
