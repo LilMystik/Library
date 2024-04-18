@@ -22,7 +22,7 @@ public class Cache {
   }
 
   public void remove(String title) {
-    cacheNew.remove((title));
+    cacheNew.remove(title);
   }
 
 }

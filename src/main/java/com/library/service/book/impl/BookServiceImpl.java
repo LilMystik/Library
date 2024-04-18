@@ -5,7 +5,12 @@ import com.library.model.Book;
 import com.library.repository.BookRepository;
 import com.library.service.book.BookService;
 import com.library.service.cache.Cache;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,12 +36,22 @@ public class BookServiceImpl implements BookService {
 
   @Override
   @Logged
-  public Book saveBook(Book book) {
-    bookRepository.save(book);
-    bookCache.put(book.getTitle(), book);
-    log.info("Saving book {}", book);
-    return book;
-  }
+    public Book saveBook(Book book) {
+     bookCache.put(book.getTitle(), book);
+      log.info("Saving book {}", book);
+      return bookRepository.save(book);
+    }
+
+    @Override
+    @Logged
+    public List<Book> saveBooks(List<Book> books) {
+      List<Book> savedBooks = bookRepository.saveAll(books);
+      for (Book book :savedBooks) {
+        bookCache.put(book.getTitle(), book);
+      }
+      savedBooks.forEach(book -> log.info("Saving book: {}", book));
+      return  savedBooks;
+    }
 
   @Override
   @Logged
@@ -55,14 +70,16 @@ public class BookServiceImpl implements BookService {
     log.info("Getting book by title: {}", titleName);
     log.info("Book found:{}", bookRepository.findBookByTitle(titleName));
     book = bookRepository.findBookByTitle(titleName);
+    bookCache.put(book.getTitle(), book);
     return book;
   }
 
+  @Transactional
   @Override
   @Logged
   public void deleteBookByTitle(String title) {
-    bookRepository.deleteBookByTitle(title);
     bookCache.remove(title);
+    bookRepository.deleteBookByTitle(title);
     log.info("Book deleted by title: {}", title);
   }
 

@@ -42,6 +42,10 @@ public class BookController {
     return bookService.saveBook(book);
   }
 
+  @PostMapping("save_books")
+  public List<Book> saveBooks(@RequestBody List<Book> books) {
+    return bookService.saveBooks(books); }
+
   @PutMapping("update")
   public Book updateBook(@RequestBody Book book) {
     return  bookService.updateBook(book);

@@ -43,6 +43,19 @@ public class GenreServiceImpl implements GenreService {
 
   @Override
   @Logged
+  public List<Genre> saveGenres(List<Genre> genres)
+  {
+    List<Genre> savedGenres = genreRepository.saveAll(genres);
+    for (Genre genre : savedGenres)
+    {
+      genreCache.put(genre.getName(),genre);
+    }
+    savedGenres.forEach(genre -> log.info("Saved genre {}",genre));
+    return savedGenres;
+  }
+
+  @Override
+  @Logged
   public Genre findGenreById(Long id) {
     return genreRepository.findGenreById(id);
   }

@@ -41,6 +41,11 @@ public class    AuthorController {
     return authorService.addAuthor(author);
   }
 
+  @PostMapping("saveAuthors")
+  public List<Author> addAuthors(@RequestBody List<Author> authors){
+    return  authorService.addAuthors(authors);
+  }
+
   @PutMapping("update")
   public Author updateAuthor(@RequestBody Author author) {
     return authorService.updateAuthor(author);

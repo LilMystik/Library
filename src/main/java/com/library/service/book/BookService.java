@@ -9,6 +9,8 @@ public interface BookService {
 
   Book saveBook(Book book);
 
+  List<Book> saveBooks(List<Book> books);
+
   Book findById(Long id);
 
   Book findByName(String titleName);

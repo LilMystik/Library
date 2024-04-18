@@ -63,6 +63,19 @@ public class AuthorServiceImpl implements AuthorService {
 
   @Override
   @Logged
+  public List<Author> addAuthors(List<Author> authors)
+  {
+    List<Author> savedAuthors=authorRepository.saveAll(authors);
+    for (Author author:savedAuthors)
+    {
+      authorCache.put(author.getName(),author);
+    }
+    savedAuthors.forEach(author -> log.info("Book added {}", author));
+    return savedAuthors;
+  }
+
+  @Override
+  @Logged
   public Author updateAuthor(Author author) {
     Author existingAuthor = authorRepository.findAuthorByName(author.getName());
     if (existingAuthor != null) {

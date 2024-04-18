@@ -40,6 +40,12 @@ public class GenreController {
     return genreService.saveGenre(genre);
   }
 
+  @PostMapping("saveGenres")
+  public List<Genre> addGenres(@RequestBody List<Genre> genres)
+  {
+    return genreService.saveGenres(genres);
+  }
+
   @PutMapping(value = "update")
   public Genre updateGenre(@RequestBody Genre genre) {
     return genreService.updateGenre(genre);

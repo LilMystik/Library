@@ -9,6 +9,8 @@ public interface GenreService {
 
   Genre saveGenre(Genre genre);
 
+  List<Genre> saveGenres(List<Genre> genres);
+
   Genre findGenreById(Long id);
 
   Genre updateGenre(Genre genre);
