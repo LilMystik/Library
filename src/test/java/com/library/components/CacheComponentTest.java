@@ -20,7 +20,7 @@ class CacheComponentTest {
   {
     cacheOld.put("key1","object1");
     Object value = cacheOld.get("key1");
-    assertEquals("value1",value);
+    assertEquals("object1",value);
   }
 
   @Test
