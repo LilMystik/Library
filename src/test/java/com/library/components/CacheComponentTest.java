@@ -42,5 +42,4 @@ class CacheComponentTest {
     Object value = cacheOld.get("key0");
     assertNull(value);
   }
-
 }
