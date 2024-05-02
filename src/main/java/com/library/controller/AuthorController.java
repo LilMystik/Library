@@ -42,8 +42,9 @@ public class    AuthorController {
   }
 
   @PostMapping("saveAuthors")
-  public List<Author> addAuthors(@RequestBody List<Author> authors){
-    return  authorService.addAuthors(authors);
+  public List<Author> addAuthors(@RequestBody List<Author> authors) {
+    authorService.addAuthors(authors);
+    return authors;
   }
 
   @PutMapping("update")

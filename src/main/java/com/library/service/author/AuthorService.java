@@ -13,7 +13,7 @@ public interface AuthorService {
 
   Author addAuthor(Author author);
 
-  List<Author> addAuthors(List<Author> authors);
+  void addAuthors(List<Author> authors);
 
   Author updateAuthor(Author author);
 

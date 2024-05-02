@@ -43,14 +43,12 @@ public class GenreServiceImpl implements GenreService {
 
   @Override
   @Logged
-  public List<Genre> saveGenres(List<Genre> genres)
-  {
+  public List<Genre> saveGenres(List<Genre> genres) {
     List<Genre> savedGenres = genreRepository.saveAll(genres);
-    for (Genre genre : savedGenres)
-    {
-      genreCache.put(genre.getName(),genre);
+    for (Genre genre : savedGenres) {
+      genreCache.put(genre.getName(), genre);
     }
-    savedGenres.forEach(genre -> log.info("Saved genre {}",genre));
+    savedGenres.forEach(genre -> log.info("Saved genre {}", genre));
     return savedGenres;
   }
 
@@ -78,12 +76,13 @@ public class GenreServiceImpl implements GenreService {
   @Override
   @Logged
   public void deleteGenre(Long id) {
-
     Genre genre = genreRepository.findGenreById(id);
-    for (Book book : genre.getBooks()) {
-      book.getGenres().remove(genre);
+    if (genre.getBooks() != null) {
+      for (Book book : genre.getBooks()) {
+        book.getGenres().remove(genre);
+      }
+      bookRepository.saveAll(genre.getBooks());
     }
-    bookRepository.saveAll(genre.getBooks());
     genreCache.remove(genre.getName());
     genreRepository.deleteById(id);
 

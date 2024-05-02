@@ -41,8 +41,7 @@ public class GenreController {
   }
 
   @PostMapping("saveGenres")
-  public List<Genre> addGenres(@RequestBody List<Genre> genres)
-  {
+  public List<Genre> addGenres(@RequestBody List<Genre> genres) {
     return genreService.saveGenres(genres);
   }
 
