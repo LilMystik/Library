@@ -26,7 +26,7 @@ public class GenreController {
   private GenreService genreService;
   private static  final  String msg = "Counter : {}";
   private CounterService counterService;
-  private static final Logger LOGGER = LoggerFactory.getLogger(BookController.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(GenreController.class);
 
   private synchronized void logCounter() {
     LOGGER.info(msg, counterService.incrementAndGet());
