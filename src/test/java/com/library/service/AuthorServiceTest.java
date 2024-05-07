@@ -49,6 +49,13 @@ class AuthorServiceTest {
   }
 
   @Test
+  void saveAuthorsTest() {
+    List<Author> authors = Arrays.asList(new Author(), new Author());
+    authorService.addAuthors(authors);
+    verify(authorRepository, times(0)).save(any(Author.class));
+  }
+
+  @Test
   void getAuthorByTitleTest() {
     Author author = new Author();
     when(authorRepository.findAuthorByName(anyString())).thenReturn(author);

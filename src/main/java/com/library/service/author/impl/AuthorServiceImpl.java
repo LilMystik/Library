@@ -69,7 +69,6 @@ public class AuthorServiceImpl implements AuthorService {
       authorCache.put(author.getName(), author);
     }
     savedAuthors.forEach(author -> log.info("Book added {}", author));
-
   }
 
   @Override

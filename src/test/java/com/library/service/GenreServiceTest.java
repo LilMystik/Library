@@ -11,7 +11,6 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
-
 import java.util.Arrays;
 import java.util.List;
 
@@ -47,6 +46,12 @@ class GenreServiceTest {
     verify(genreCache, times(1)).put(genre.getName(), genre);
   }
 
+  @Test
+  void saveGenresTest() {
+    List<Genre> genres = Arrays.asList(new Genre(), new Genre());
+    genreService.saveGenres(genres);
+    verify(genreRepository, times(0)).save(any(Genre.class));
+  }
   @Test
   void getGenreByIdTest() {
     Genre genre = new Genre();
